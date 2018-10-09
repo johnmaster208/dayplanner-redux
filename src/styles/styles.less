@@ -1,3 +1,115 @@
-html,body {
-    background-image: linear-gradient(to left, #888, #fff)
+html {
+    background: linear-gradient(to top right, purple, turquoise) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
+
+body {
+    font-family: 'Quicksand', sans-serif;
+    background-color: transparent;
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: stretch;
+    .appointment-list {
+        height: 100vh;
+        min-width: 75vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin: 3em 0em;
+        .appointment{
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            color: #fff;
+            padding: 10%;
+            margin: 5% 0;
+            width: 100%;
+            border: 2px solid rgb(74, 22, 170);
+            border-radius: 0.5ex;
+            height: 50px;
+            cursor: pointer;
+            h1 {
+                font-size: 3.5em;
+            }
+            h2 {
+                text-shadow: 2px 2px #888;
+            }
+            &.available {
+                background: linear-gradient(to left, #d6d6d6, #888);
+
+            }
+            &.reserved {
+                background: linear-gradient(to left, #e6990a, #cc2621);
+            }
+            &:hover {
+                box-shadow: 0px 0px 50px #fff;
+            }
+        }
+    }
+    .spinner {
+        background: #0ea195;
+        color: #fff;
+        position: fixed;
+        opacity: 0.9;
+        top: 0;
+        bottom: 0;
+        left: 0; 
+        right: 0;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        img.spinner-thumbs {
+            width: auto;
+            height: 150px;
+        }
+    }
+}
+        
+div[role="dialog"].fade.in.modal {
+    display: flex !important;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    padding: 5%;
+}
+
+.modal-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    label {
+        font-size: 1.5em;
+    }
+}
+
+.modal-alert-wrapper {
+    text-align: center;
+}
+
+.form-error-text {
+    font-size: 11px;
+    color: red;
+}
+

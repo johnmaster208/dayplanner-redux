@@ -1,21 +1,18 @@
-import React, { Component } from 'react'
-import store from '../store/configureStore'
-import {ACTIONS} from '../constants/index'
+import React from 'react'
+import PropTypes from 'prop-types'
+import { AppointmentList } from '.'
 
-class MainComponent extends Component {
+const MainComponent = (props) => {
+  const {appointments} = props
+  return (
+    <AppointmentList appointments={appointments} {...props}/>
+  )
+}
 
-  componentDidMount() {
-    // store.dispatch({type: ACTIONS.DUMMY, data: { text: 'a dummy action'}})
-    store.dispatch({type: ACTIONS.DUMMY, error: "Error was thrown!"})
-  }
-
-  render() {
-    return (
-      <div>
-        Hello, World!
-      </div>
-    )
-  }
+MainComponent.propTypes = {
+  appointments: PropTypes.array.isRequired,
+  showReserveAppt: PropTypes.func.isRequired,
+  showModifyAppt: PropTypes.func.isRequired
 }
 
 export default MainComponent

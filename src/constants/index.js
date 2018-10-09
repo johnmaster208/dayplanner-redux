@@ -5,9 +5,11 @@ CONSTANTS, AND OTHER APPLICATION-WIDE VARIABLES
 https://modernweb.com/javascript-configuration-object-pattern/ 
 */
 
-export const ACTIONS = keyMirror({
-    //DEFINE ACTIONS HERE...
-    DUMMY: null
+export const ACTION = keyMirror({
+    SHOW_MODAL: null,
+    RESERVE_APPOINTMENT: null,
+    CANCEL_APPOINTMENT: null,
+    MODIFY_APPOINTMENT: null
 })
 
 export const STATUS = keyMirror({
@@ -18,6 +20,16 @@ export const STATUS = keyMirror({
     UNKNOWN: null,
     ABORT: null,
     ERROR: null
+})
+
+export const MODAL = keyMirror({
+    RESERVE_APPOINTMENT: null,
+    MODIFY_APPOINTMENT: null
+})
+
+export const FORM = keyMirror({
+    RESERVE: null,
+    MODIFY: null
 })
 
 export const PATH = {

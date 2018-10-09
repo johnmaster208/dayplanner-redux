@@ -1,44 +1,39 @@
+import {ACTION, STATUS} from '../constants/index'
+
 const defaultState = {
     status: {},
-    alert: {},
-    error: {}
+    modal: {}
 }
 
 const StatusReducer = (state=defaultState.status, action) => {
-    switch(action.status) {
-        default: {
-            return state
+    if (action.status) {
+        let newstate={};
+        newstate[action.type]=action.status;
+        return {...state, ...newstate};
+    } else if (action.type === ACTION.SHOW_MODAL) {
+        if (!action.show) {
+            let newstate={};
+            newstate[action.modal]=STATUS.UNKNOWN;
+            return {...state, ...newstate};
         }
     }
+    return state
 }
 
-const AlertReducer = (state=defaultState.alert, action) => {
-    switch(action.alert) {
-        default: {
-            return state
-        }
+const ModalReducer = (state=defaultState.modal, action) => {
+    if (action.modal) {
+        let newstate = {};
+        newstate[action.modal] = {...action};
+        return {...state, ...newstate};
     }
-}
-
-const ErrorReducer = (state=defaultState.error, action) => {
-    switch(action.error) {
-        default: {
-            return {...state, ...action.error}
-        }
-    }
+    return state
 }
 
 const AppReducer = (state=defaultState, action) => {
-    if(action.type) {
-        let newState = {
-            ...state,
-            status: StatusReducer,
-            alert: AlertReducer,
-            error: ErrorReducer
-        }
-        return newState
+    return {
+        status: StatusReducer(state.status, action),
+        modal: ModalReducer(state.modal, action)
     }
-    return state
 }
 
 export default AppReducer

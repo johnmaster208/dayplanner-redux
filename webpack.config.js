@@ -22,6 +22,9 @@ module.exports = {
         publicPath: '/',
         pathinfo: true
     },
+    node: {
+        fs: 'empty'
+    },
     mode: 'development',
     devtool: setDevTool(),
     module: {
@@ -54,6 +57,24 @@ module.exports = {
                         loader: 'less-loader'
                     }
                 ]
+            },
+            {
+                test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name:'images/[name].[hash].[ext]'
+                    }
+                }
+            },
+            {
+                test: /\.(jpe?g|png|gif|ico)$/i,
+                use: {
+                    loader: 'file-loader',
+                    options: {
+                        name:'images/[name].[hash].[ext]'
+                    }
+                } 
             }
         ]
     },
