@@ -7,19 +7,22 @@ const Appointment = ({appt, showReserveAppt, showModifyAppt}) => {
         <div 
         className={"appointment " + (reserved ? "reserved " : "available ")} 
         onClick={reserved ? onShowModifyAppt : onShowReserveAppt}>
-            <h1>{time}</h1>
+            <div className="appointment-time">{time}</div>
             {
-                reserved ?
-                (
-                    <div>
-                        <h2>Reserved By: {name}</h2> 
-                        <h2>Phone Number: {phone}</h2>
-                    </div>
+                <div className="appointment-info">
+                {
+                    reserved ?
+                (    
+                    <React.Fragment>
+                        <p>Reserved By: {name}</p> 
+                        <p>Phone Number: {phone}</p>
+                    </React.Fragment>   
                 )
                 :
                 (
-                    <h2>This time slot is available.</h2>
-                )
+                    <h3>This time slot is available.</h3>
+                )}
+                </div>
                 
             }
         </div>

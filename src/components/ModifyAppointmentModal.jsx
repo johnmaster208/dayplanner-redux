@@ -25,6 +25,7 @@ const renderField = ({
   )
 
 const ModifyAppointmentModal = ({show, active, showModal, modify, cancel, handleSubmit, form, reset, invalid}) => {
+    reset()
     if (!show) return null
     if (show)  return (
         <Modal show={show} onHide={onHideModal}>

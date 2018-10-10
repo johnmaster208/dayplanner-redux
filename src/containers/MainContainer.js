@@ -64,13 +64,12 @@ class MainContainer extends Component {
                                     modify={modify}
                                     cancel={cancel}
                                     form={FORM.MODIFY}
-                                    active={modifymodal.active}
-                                    initialValues={
-                                        {
-                                            firstName: modifymodal.active.name,
-                                            phoneNumber: modifymodal.active.phone
-                                        }
-                                    }
+                                    active={appointments[modifymodal.active.id]}
+                                    enableReinitialize={true}
+                                    initialValues={{
+                                        firstName: appointments[modifymodal.active.id].name,
+                                        phoneNumber: appointments[modifymodal.active.id].phone
+                                    }}
                                 />
                             )
                         }

@@ -1,2 +1,2 @@
-# react-redux-webpack-boilerplate
-Boiler code for React 16, React-Redux and Webpack
+# DayPlanner-Redux
+Version 2 of the Dayplanner
