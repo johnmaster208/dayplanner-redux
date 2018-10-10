@@ -25,7 +25,6 @@ const renderField = ({
   )
 
 const ModifyAppointmentModal = ({show, active, showModal, modify, cancel, handleSubmit, form, reset, invalid}) => {
-    reset()
     if (!show) return null
     if (show)  return (
         <Modal show={show} onHide={onHideModal}>
@@ -52,8 +51,11 @@ const ModifyAppointmentModal = ({show, active, showModal, modify, cancel, handle
     )
     function onHideModal() {
         showModal(false, active)
+        reset()
     }
-    function onCancel() {
+    function onCancel(e) {
+        e.preventDefault()
+        showModal(false, active)
         cancel(active)
         reset()
     }

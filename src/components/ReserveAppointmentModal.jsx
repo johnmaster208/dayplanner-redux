@@ -51,6 +51,7 @@ const ReserveAppointmentModal = ({show, active, showModal, reserve, handleSubmit
     )
     function onHideModal() {
         showModal(false, active)
+        reset()
     }
     function onSubmit(data) {
         showModal(false, active)

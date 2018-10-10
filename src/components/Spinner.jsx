@@ -25,9 +25,9 @@ class Spinner extends Component {
         return (
             <div className="spinner">
                 <h1>{this.insertRandomPoppycock()}</h1>
-                { (reservestatus === STATUS.PENDING) && <div>(...and reserving your appointment...)</div> }
-                { (modifystatus === STATUS.PENDING && cancelstatus !== STATUS.PENDING) && <div>(...and modifying your appointment...)</div> }
-                { (cancelstatus === STATUS.PENDING && modifystatus !== STATUS.PENDING) && <div>(...and cancelling your appointment...)</div> }
+                { (reservestatus === STATUS.PENDING && modifystatus !== STATUS.PENDING && cancelstatus !== STATUS.PENDING) && <div>(...and reserving your appointment...)</div> }
+                { (modifystatus === STATUS.PENDING && cancelstatus !== STATUS.PENDING && reservestatus !== STATUS.PENDING) && <div>(...and modifying your appointment...)</div> }
+                { (cancelstatus === STATUS.PENDING && modifystatus !== STATUS.PENDING && reservestatus !== STATUS.PENDING) && <div>(...and cancelling your appointment...)</div> }
                 <div><img className="spinner-thumbs" src={LoadingImage} /></div>
                 
             </div>
